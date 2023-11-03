@@ -6,7 +6,6 @@ pipeline {
             steps {
               withCredentials([file(credentialsId: 'labcredentials', variable: 'PEPE')]) {
                 withAWS(region:'us-east-1') {
-                    cleanWS()
                     echo "+++++ Set up +++++"
                     sh '''
                     set +x
@@ -15,6 +14,7 @@ pipeline {
                     sh 'git clone https://github.com/txrm/edix-S7L3.git'
                     awsIdentity()
                     cfnUpdate(stack:'demo-rmm-S7L3', file: "edix-S7L3/t.yml", pollInterval:5000)
+                    sh 'rm -rf edix-S7L3'
                     sh 'echo "Texto a subir">text.txt'
                     
                     
@@ -38,7 +38,6 @@ pipeline {
                     
                     echo "+++++ Stack clearing +++++"
                     cfnDelete(stack:'demo-rmm-S7L3')
-                    cleanWS()
                 }
               }
             }
