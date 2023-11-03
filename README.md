@@ -15,10 +15,10 @@ Simple pipeline for assignment
 If not using a Student account, you might want to modify the CloudFormation template to change the Lambda's Execution Role.
 Or just delete the Lambda function altogether and delete everything with AWS Steps.
 
-## Screencaps
+## Results
 [Video](https://raw.githubusercontent.com/txrm/edix-S7L3/main/Video.mp4)
 
-
+### Screencaps
 ![result1](https://github.com/txrm/edix-S7L3/blob/main/screencaps/1.png?raw=true)
 ![result2](https://github.com/txrm/edix-S7L3/blob/main/screencaps/2.png?raw=true)
 ![result3](https://github.com/txrm/edix-S7L3/blob/main/screencaps/3.png?raw=true)
