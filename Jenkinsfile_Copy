@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Config de AWS') {
+            steps {
+              withCredentials([file(credentialsId: 'labcredentials', variable: 'PEPE')]) {
+                withAWS(region:'us-east-1') {
+                    echo "+++++ Set up +++++"
+                    sh '''
+                    set +x
+                    mkdir -p ~/.aws
+                    ln -sf $PEPE ~/.aws/credentials && chmod 600 ~/.aws/credentials'''
+                    awsIdentity()
+                    cfnUpdate(stack:'demo-rmm-S7L3', file: "t.yml", pollInterval:5000)
+                    sh 'echo "Texto a subir">text.txt'
+                    
+                    
+                    echo "+++++ File Upload ++++++"
+                    script{env.S3 = sh(returnStdout: true, script: '''
+                    aws cloudformation describe-stacks --query \'Stacks[?StackName==`demo-rmm-S7L3`][].Outputs[?OutputKey==`BuckerooName`].OutputValue\' --output text
+                    ''').trim()}
+                    s3Upload(file:'text.txt', bucket:"${env.S3}")
+                    
+                    
+                    echo "+++++ File Download +++++"
+                    s3Download(file:'out/text.txt', path:'text.txt', bucket:"${env.S3}", force:true)
+                    
+                    
+                    echo "+++++ Bucket clearing +++++"
+                    script{env.LAMBDA = sh(returnStdout: true, script: '''
+                    aws cloudformation describe-stacks --query \'Stacks[?StackName==`demo-rmm-S7L3`][].Outputs[?OutputKey==`LambdaName`].OutputValue\' --output text
+                    ''').trim()}
+                    invokeLambda(functionName: "${env.LAMBDA}")
+                    
+                    
+                    echo "+++++ Stack clearing +++++"
+                    cfnDelete(stack:'demo-rmm-S7L3')
+                }
+              }
+            }
+        }
+    }
+}
+
