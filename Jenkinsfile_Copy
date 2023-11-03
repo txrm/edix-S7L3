@@ -11,8 +11,9 @@ pipeline {
                     set +x
                     mkdir -p ~/.aws
                     ln -sf $PEPE ~/.aws/credentials && chmod 600 ~/.aws/credentials'''
+                    sh 'git clone https://github.com/txrm/edix-S7L3.git'
                     awsIdentity()
-                    cfnUpdate(stack:'demo-rmm-S7L3', file: "t.yml", pollInterval:5000)
+                    cfnUpdate(stack:'demo-rmm-S7L3', file: "edix-S7L3/t.yml", pollInterval:5000)
                     sh 'echo "Texto a subir">text.txt'
                     
                     
