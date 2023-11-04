@@ -1,8 +1,8 @@
 # edix-S7L3
 Simple pipeline for assignment
 
-Edit 04-10-2023: This is terrible.
-## Update TODO List:
+Edit 04-11-2023: Lord forgive me this is terrible.
+## Updated TODO List:
 - [ ] Better secret protection.
 - [x] Creation and destruction of infrastructure needed.
 - [ ] No script{} steps at all.
@@ -12,7 +12,7 @@ Edit 04-10-2023: This is terrible.
 - [ ] Multistage division.
 - [x] Quick credential swap.
 - [ ] Finding a way to keep the AWS credentials loaded without keeping the workspace.
-- [x] Environment variable creation at runtime.
+- [x] Environment variable creation at runtime. ~~This sucks btw~~
 - [ ] Make it not depend on sh or powershell, or make it detect the host OS.
 - [ ] Make it not break when naming the Job with a space. Example "MyJob" works fine, "My Job" literally breaks apart.
 - [ ] Give the Lambda function some other task other than show off. The current sh block makes it unnecessarily uncompatible with Jenkins on Wind$ws.
@@ -29,8 +29,8 @@ THIS CLOUDFORMATION AND LAMBDA APPROACH IS OVERENGINEERED AND USELESS AND A WAST
 
 ## Results
 [Video](https://raw.githubusercontent.com/txrm/edix-S7L3/main/Video.mp4)
-THIS BREAKS IF NOT ON LINUX/LINUX DOCKER WITH GIT INSTALLED.
-THIS BREAKS IF USING NORMAL SHORT-LIVED AWS CREDENTIALS
+- THIS BREAKS IF NOT ON LINUX/LINUX DOCKER WITH GIT INSTALLED.
+- THIS BREAKS IF USING NORMAL SHORT-LIVED AWS CREDENTIALS
 
 ### Screencaps
 ![result1](https://github.com/txrm/edix-S7L3/blob/main/screencaps/1.png?raw=true)
