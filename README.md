@@ -25,12 +25,13 @@ Edit 04-11-2023: Lord forgive me this is terrible.
 ~~If not using a Student account, you might want to modify the CloudFormation template to change the Lambda's Execution Role.
 Or just delete the Lambda function altogether and delete everything with AWS Steps.~~
 
-THIS CLOUDFORMATION AND LAMBDA APPROACH IS OVERENGINEERED AND USELESS AND A WASTE OF TIME.
+This Cloudformation and Lambda approach is overengineered, useless and a waste of time.
+Marked for removal/serious improvement.
 
 ## Results
 [Video](https://raw.githubusercontent.com/txrm/edix-S7L3/main/Video.mp4)
-- THIS BREAKS IF NOT ON LINUX/LINUX DOCKER WITH GIT INSTALLED.
-- THIS BREAKS IF USING NORMAL SHORT-LIVED AWS CREDENTIALS
+- This breaks if not on Linux/Docker with git installed.
+- This breaks if using normal short-lived AWS credentials
 
 ### Screencaps
 ![result1](https://github.com/txrm/edix-S7L3/blob/main/screencaps/1.png?raw=true)
