@@ -32,7 +32,7 @@ Marked for removal/serious improvement.
 [Video](https://raw.githubusercontent.com/txrm/edix-S7L3/main/Video.mp4)
 - This breaks if not on Linux/Docker with git installed.
 - This breaks if using normal short-lived AWS credentials
-
+- This breaks if your Job has a space in its name.
 ### Screencaps
 ![result1](https://github.com/txrm/edix-S7L3/blob/main/screencaps/1.png?raw=true)
 ![result2](https://github.com/txrm/edix-S7L3/blob/main/screencaps/2.png?raw=true)
